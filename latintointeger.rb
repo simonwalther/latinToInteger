@@ -26,7 +26,7 @@ module LatinToInteger
               #if there's two times or more the previous letter
               if (i-2) >= 0 && LetterArray.index(previous_latin_number) == LetterArray.index(previous_latin_number_2)
                 #it raise an error
-                raise "#{previous_latin_number_2}#{previous_latin_number}#{current_latin_number} isn't a correct combination (#{previous_latin_number}#{current_latin_number} is)"
+                raise "#{previous_latin_number_2}#{previous_latin_number}#{current_latin_number} isn't a correct combination (#{previous_latin_number}#{current_latin_number} is) #1"
               else
                 #it subtract 2 times the value of the previous letter to the value of the curret letter and add the result to integer_number
                 integer_number += (ValueArray[LetterArray.index(current_latin_number)]-(ValueArray[LetterArray.index(previous_latin_number)])*2)
@@ -38,7 +38,7 @@ module LatinToInteger
             #if there's five or more times the letter M
             elsif (i-4) >= 0 && LetterArray.index(current_latin_number) == 0 && LetterArray.index(previous_latin_number_4) == LetterArray.index(previous_latin_number_3) && previous_latin_number_3 == previous_latin_number_2 && previous_latin_number_2 == previous_latin_number && previous_latin_number == current_latin_number
               #it raise an error
-              raise "MMMMM isn't a correct combination: latin numbers exists up to 4999 (without lines over letter)"
+              raise "MMMMM isn't a correct combination: latin numbers exists up to 4999"
             #if the previous letter index is 1 or 3 bigger than the current letter index
             elsif (i-1) >= 0 && ((LetterArray.index(current_latin_number)-LetterArray.index(previous_latin_number)) == -1 || (LetterArray.index(current_latin_number)-LetterArray.index(previous_latin_number)) <= -3)
               #it raise an error
@@ -57,7 +57,7 @@ module LatinToInteger
               #if there's two times or more the previous letter
               if (i-2) >= 0 && LetterArray.index(previous_latin_number) == LetterArray.index(previous_latin_number_2)
                 #it raise an error
-                raise "#{previous_latin_number_2}#{previous_latin_number}#{current_latin_number} isn't a correct combination (#{previous_latin_number}#{current_latin_number} is)"
+                raise "#{previous_latin_number_2}#{previous_latin_number}#{current_latin_number} isn't a correct combination (#{previous_latin_number}#{current_latin_number} is) #2"
               else
                 #it subtract 2 times the value of the previous letter to the value of the curret letter and add the result to integer_number
                 integer_number += (ValueArray[LetterArray.index(current_latin_number)]-(ValueArray[LetterArray.index(previous_latin_number)])*2)
