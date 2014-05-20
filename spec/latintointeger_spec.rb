@@ -120,16 +120,6 @@ describe LatinToInteger do
       result.should == 40
     end
 
-    it 'IX should have the value of 9' do
-      result = subject.convert("IX")
-      result.should == 9
-    end
-
-    it 'IV should have the value of 4' do
-      result = subject.convert("IV")
-      result.should == 4
-    end
-
     describe 'without correct combinations:' do
       it "DM shouldn't be possible" do
         expect { subject.convert("DM")}.to raise_error

@@ -20,7 +20,7 @@ module LatinToInteger
               #if there's two times or more the previous letter
               if (i-2) >= 0 && LetterArray.index(latin_number[i-1]) == LetterArray.index(latin_number[i-2])
                 #it raise an error
-                raise "#{latin_number[i-2]}#{latin_number[i-1]}#{latin_number[i]} isn't a correct combination (#{latin_number[i-1]}#{latin_number[i]}) is"
+                raise "#{latin_number[i-2]}#{latin_number[i-1]}#{latin_number[i]} isn't a correct combination (#{latin_number[i-1]}#{latin_number[i]} is)"
               else
                 #it subtract 2 times the value of the previous letter to the value of the curret letter and add the result to integer_number
                 integer_number += (ValueArray[LetterArray.index(latin_number[i])]-(ValueArray[LetterArray.index(latin_number[i-1])])*2)
@@ -51,7 +51,7 @@ module LatinToInteger
               #if there's two times or more the previous letter
               if (i-2) >= 0 && LetterArray.index(latin_number[i-1]) == LetterArray.index(latin_number[i-2])
                 #it raise an error
-                raise "#{latin_number[i-2]}#{latin_number[i-1]}#{latin_number[i]} isn't a correct combination (#{latin_number[i-1]}#{latin_number[i]}) is"
+                raise "#{latin_number[i-2]}#{latin_number[i-1]}#{latin_number[i]} isn't a correct combination (#{latin_number[i-1]}#{latin_number[i]} is)"
               else
                 #it subtract 2 times the value of the previous letter to the value of the curret letter and add the result to integer_number
                 integer_number += (ValueArray[LetterArray.index(latin_number[i])]-(ValueArray[LetterArray.index(latin_number[i-1])])*2)
