@@ -67,6 +67,38 @@ describe LatinToInteger do
     end
   end
 
+  describe 'test: 2->10' do
+    it 'II should have the value of 2' do
+      result = subject.convert("II")
+      result.should == 2
+    end
+
+    it 'III should have the value of 3' do
+      result = subject.convert("III")
+      result.should == 3
+    end
+
+    it 'IV should have the value of 4' do
+      result = subject.convert("IV")
+      result.should == 4
+    end
+
+    it 'VI should have the value of 6' do
+      result = subject.convert("VI")
+      result.should == 6
+    end
+
+    it 'VII should have the value of 7' do
+      result = subject.convert("VII")
+      result.should == 7
+    end
+
+    it 'VIII should have the value of 8' do
+      result = subject.convert("VIII")
+      result.should == 8
+    end
+  end
+
   describe 'test: letters combinations' do
     it 'CM should have the value of 900' do
       result = subject.convert("CM")
