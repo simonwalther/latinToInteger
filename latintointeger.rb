@@ -1,12 +1,15 @@
 module LatinToInteger
-  LETTERARRAY = ["I", "V", "X", "L", "C", "D", "M"]
-  VALUEARRAY = [1, 5, 10, 50, 100, 500, 1000]
-
   def latin_to_integer(latin_number)
     latin_number = latin_number.upcase.split(//).reverse
-    verify(latin_number)
-    calculate(latin_number)
+    @converter ||= Converter.new
+    @converter.verify(latin_number)
+    @converter.calculate(latin_number)
   end
+end
+
+class Converter
+  LETTERARRAY = ["I", "V", "X", "L", "C", "D", "M"]
+  VALUEARRAY = [1, 5, 10, 50, 100, 500, 1000]
 
   def verify(latin_number)
     same_letter_counter = 0
