@@ -2,18 +2,18 @@ module LatinToInteger
   LETTERARRAY = ["I", "V", "X", "L", "C", "D", "M"]
   VALUEARRAY = [1, 5, 10, 50, 100, 500, 1000]
 
-  def convert(latin_number)
+  def latin_to_integer(latin_number)
     latin_number = latin_number.upcase.split(//).reverse
     self.verify(latin_number)
-    self.calcul(latin_number)
+    self.calculate(latin_number)
   end
 
   def verify(latin_number)
     same_letter_counter = 0
 
     latin_number.each_with_index do |current_latin_number, i|
-      group_current_letter = (self.returnGroup(current_latin_number))
-      group_next_letter = (self.returnGroup(latin_number[i-1]))
+      group_current_letter = (self.group_of(current_latin_number))
+      group_next_letter = (self.group_of(latin_number[i-1]))
 
       if i > 0
         #count same letter
@@ -41,7 +41,7 @@ module LatinToInteger
     end
   end
 
-  def calcul(latin_number)
+  def calculate(latin_number)
     integer_number = 0
 
     latin_number.each_with_index do |current_latin_number, i|
@@ -55,7 +55,7 @@ module LatinToInteger
     return integer_number
   end
 
-  def returnGroup(letter)
+  def group_of(letter)
     if (LETTERARRAY.index(letter)+2)%2 == 0
       return "X"
     elsif (LETTERARRAY.index(letter)+2)%2 == 1
