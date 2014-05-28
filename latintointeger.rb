@@ -1,7 +1,5 @@
 module LatinToInteger
-  # LETTERARRAY = ["M", "D", "C", "L", "X", "V", "I"]
   LETTERARRAY = ["I", "V", "X", "L", "C", "D", "M"]
-  # VALUEARRAY = [1000, 500, 100, 50, 10, 5, 1]
   VALUEARRAY = [1, 5, 10, 50, 100, 500, 1000]
 
   def convert(latin_number)
@@ -14,27 +12,28 @@ module LatinToInteger
     same_letter_counter = 0
 
     latin_number.each_with_index do |current_latin_number, i|
-      #count same letter
-      if i > 0 && LETTERARRAY.index(current_latin_number) == LETTERARRAY.index(latin_number[i-1])
-        same_letter_counter += 1
-      elsif i > 0 && LETTERARRAY.index(current_latin_number) != LETTERARRAY.index(latin_number[i-1])
-        same_letter_counter = 0
-      end
-
       group_current_letter = (self.returnGroup(current_latin_number))
       group_next_letter = (self.returnGroup(latin_number[i-1]))
 
       if i > 0
+        #count same letter
+        if LETTERARRAY.index(current_latin_number) == LETTERARRAY.index(latin_number[i-1])
+          same_letter_counter += 1
+        elsif LETTERARRAY.index(current_latin_number) != LETTERARRAY.index(latin_number[i-1])
+          same_letter_counter = 0
+        end
+
         #verify if the letter can be this amount of time
         if (group_current_letter == "X" && same_letter_counter > 2 && current_latin_number != LETTERARRAY.last) || (group_current_letter == "V" && same_letter_counter > 0) || (current_latin_number == LETTERARRAY.last && same_letter_counter > 3)
           raise "there's more than #{same_letter_counter} times the letter #{current_latin_number} !"
         end
 
-        #verify if letter are compatible
+        #verify if letters are compatible
         if (group_current_letter == "X" && (LETTERARRAY.index(latin_number[i-1])-LETTERARRAY.index(current_latin_number) >= 3)) || (group_current_letter == "V" && ((LETTERARRAY.index(current_latin_number) < LETTERARRAY.index(latin_number[i-1])) || (group_next_letter == "V")))
           raise "#{current_latin_number} is a letter incompatible with #{latin_number[i-1]}"
         end
 
+        #verify if there's less than two times a letter smaller than the next letter
         if i > 1 && same_letter_counter > 0 && LETTERARRAY.index(latin_number[i-2]) > LETTERARRAY.index(current_latin_number)
           raise "you can only put one time a letter smaller than the next letter"
         end
