@@ -15,6 +15,10 @@ class Converter
     same_letter_counter = 0
 
     latin_number.each_with_index do |current_latin_number, i|
+      if LETTERARRAY.include?(current_latin_number) == false
+        raise "#{current_latin_number} isn't a romain number"
+      end
+
       group_current_letter = (group_of(current_latin_number))
       group_next_letter = (group_of(latin_number[i-1]))
 

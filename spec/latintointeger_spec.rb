@@ -144,6 +144,16 @@ describe LatinToInteger do
   end
 
   describe '#verify' do
+    describe 'impossible letter' do
+      it "R shouldn't be possible" do
+        expect { subject.latin_to_integer("R")}.to raise_error
+      end
+
+      it "/ shouldn't be possible" do
+        expect { subject.latin_to_integer("/")}.to raise_error
+      end
+    end
+
     describe 'impossible combinations' do
       it "DM shouldn't be possible" do
         expect { subject.latin_to_integer("DM")}.to raise_error
